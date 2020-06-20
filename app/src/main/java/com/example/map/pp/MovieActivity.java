@@ -42,10 +42,10 @@ public class MovieActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         movie_list = new ArrayList<>();
 
-        String search_url = "https://api.themoviedb.org/3/movie/upcoming?api_key=9285197c339a75183368c8ca1834933f&language=ko-KR&page=1";
-        String[] strings = {search_url};
+        String search = "https://api.themoviedb.org/3/movie/upcoming?api_key=9285197c339a75183368c8ca1834933f&language=ko-KR&page=1";
+        String[]  url = {search};
         MovieAsyncTask movie = new MovieAsyncTask();
-        movie.execute(strings[0]);
+        movie.execute(url[0]);
         recyclerView.setLayoutManager(new GridLayoutManager(MovieActivity.this, 2));
 
 
@@ -59,14 +59,13 @@ public class MovieActivity extends AppCompatActivity {
         searchView.setQueryHint("영화제목을 입력하세요.");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
 
-            //검색어를 다 입력하고 서치 버튼을 눌렀을때
             @Override
             public boolean onQueryTextSubmit(String s) {
                 Toast.makeText(MovieActivity.this, s + "에 대한 영화를 검색합니다.", Toast.LENGTH_LONG).show();
-                String search_url = "https://api.themoviedb.org/3/search/movie?api_key=9285197c339a75183368c8ca1834933f&query=" + s + "&language=ko-KR&page=1";
-                String[] strings = {search_url};
-                MovieAsyncTask search = new MovieAsyncTask();
-                search.execute(strings[0]);
+                String search = "https://api.themoviedb.org/3/search/movie?api_key=9285197c339a75183368c8ca1834933f&query=" + s + "&language=ko-KR&page=1";
+                String[] url = {search};
+                MovieAsyncTask Search = new MovieAsyncTask();
+                Search.execute(url[0]);
 
                 return false;
             }
@@ -74,10 +73,9 @@ public class MovieActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String s) {
                 String search_url = "https://api.themoviedb.org/3/movie/upcoming?api_key=9285197c339a75183368c8ca1834933f&language=ko-KR&page=1";
-                String[] strings = {search_url};
+                String[] search = {search_url};
                 MovieAsyncTask movie = new MovieAsyncTask();
-                movie.execute(strings[0]);
-                recyclerView.setLayoutManager(new GridLayoutManager(MovieActivity.this, 2));
+                movie.execute(search[0]);
                 return false;
             }
         });
