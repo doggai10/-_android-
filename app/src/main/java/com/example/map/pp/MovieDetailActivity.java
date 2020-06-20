@@ -92,9 +92,9 @@ public class MovieDetailActivity extends AppCompatActivity {
                 Response response = client.newCall(request).execute();
                 Gson gson = new GsonBuilder().create();
                 JsonParser parser = new JsonParser();
-                JsonElement rootObject = parser.parse(response.body().charStream())
+                JsonElement Trailer = parser.parse(response.body().charStream())
                         .getAsJsonObject().get("results");
-                youtube[] result = gson.fromJson(rootObject, youtube[].class);
+                youtube[] result = gson.fromJson(Trailer, youtube[].class);
                 return result;
             } catch (Exception e) {
                 e.printStackTrace();

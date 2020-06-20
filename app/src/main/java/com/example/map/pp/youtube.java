@@ -4,7 +4,7 @@ public class youtube {
     private String id;
     private String key;
     private String name;
-    private String size;
+    //private String size;
 
 
     public String getId() {
@@ -19,7 +19,7 @@ public class youtube {
         return name;
     }
 
-    public String getSize() {
+    /*public String getSize() {
         return size;
-    }
+    }*/
 }
