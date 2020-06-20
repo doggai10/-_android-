@@ -61,7 +61,7 @@ public class MovieActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextSubmit(String s) {
-                Toast.makeText(MovieActivity.this, s + "에 대한 영화를 검색합니다.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MovieActivity.this, s + " 영화를 검색합니다.", Toast.LENGTH_LONG).show();
                 String search = "https://api.themoviedb.org/3/search/movie?api_key=9285197c339a75183368c8ca1834933f&query=" + s + "&language=ko-KR&page=1";
                 String[] url = {search};
                 MovieAsyncTask Search = new MovieAsyncTask();
@@ -89,7 +89,6 @@ public class MovieActivity extends AppCompatActivity {
 
         switch(id){
             case R.id.action_search:
-                Toast.makeText(this, "search", Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
